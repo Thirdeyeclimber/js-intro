@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>DOM Manipulation</title>
+  </head>
+  <body>
+  	<p id="num">0</p>
+    <button id="up">+</button>
+    <button id="down">-</button>
+
+    <script>
+			var $upbutton = document.getElementById('up');
+			var $downbutton = document.getElementById('down');
+			var $counter = document.getElementById('num');
+
+			var count = 0;
+			var initialFontSize = 16;
+
+			function handleUpButtonClick() {
+			  count++;
+			  $counter.textContent = count;
+
+			  $counter.style.fontSize = initialFontSize + count + 'px';
+			}
+
+			function handleDownButtonClick() {
+			  count--;
+			  $counter.textContent = count;
+
+			  $counter.style.fontSize = initialFontSize + count + 'px';
+			}
+
+			$upbutton.addEventListener('click', handleUpButtonClick);
+			$downbutton.addEventListener('click', handleDownButtonClick);
+    </script>
+
+
+    <p>Psst... try holding the B key!</p>
+		<script>
+		  window.addEventListener("keydown", event => {
+		    if (event.key == "b") {
+		      document.body.style.background = "lightblue";
+		    }
+		  });
+		  window.addEventListener("keyup", event => {
+		    if (event.key == "b") {
+		      document.body.style.background = "grey";
+		    }
+		  });
+		</script>
+
+  </body>
+</html>

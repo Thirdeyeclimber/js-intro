@@ -13,9 +13,14 @@ function handleListCreate() {
 
 function handleCardCreate(event) {
 	var $listContainer = event.target.parentNode;
-	var listId = $listContainer.getAttribute('data-id');
+  var listId = Number($listContainer.getAttribute('data-id'));
+  
+  var cardText = prompt('New card text') || '';
 
-	alert(`clicked list ${listId}`);
+  if (cardText.trim()) {
+    board.addCard(listId, cardText);
+    renderBoard();
+  }
 }
 
 function renderBoard() {
@@ -30,6 +35,19 @@ function renderBoard() {
 
     var $headerButton = document.createElement('button');
     $headerButton.textContent = list.title;
+
+    var $cardUl = document.createElement('ul');
+
+    list.cards.forEach(function(card) {
+      var $cardLi = document.createElement('li');
+
+      var $cardButton = document.createElement('button');
+
+      $cardButton.textContent = card.text;
+
+      $cardLi.appendChild($cardButton);
+      $cardUl.appendChild($cardLi);
+    });
     
     var $addCardButton = document.createElement('button');
     $addCardButton.textContent = 'Add a card...';
@@ -37,6 +55,7 @@ function renderBoard() {
 
     $header.appendChild($headerButton);
     $listContainer.appendChild($header);
+    $listContainer.appendChild($cardUl);
     $listContainer.appendChild($addCardButton);
     $boardContainer.appendChild($listContainer);
   });

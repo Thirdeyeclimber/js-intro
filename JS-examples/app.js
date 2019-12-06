@@ -22,7 +22,7 @@
 
 // // // BACKTICK 
 // // var firstName = 'Brendan';
-// // var lastName = 'Eich';
+// // var lastName = 'Erich';
 // // console.log('firstName', firstName);
 // // console.log('lastName', lastName);
 // // var fullName = `
@@ -54,7 +54,7 @@
 // console.log("--------------------------------");
 
 // // ARRAYS
-// var favoriteThings = ['dogs', 'catz', 'friends'];
+// var favoriteThings = ['dogs', 'cats', 'friends'];
 // var firstThing = favoriteThings[0];
 // var secondThing = favoriteThings[1];
 // var thirdThing = favoriteThings[2];
@@ -275,6 +275,11 @@ console.log("--------------------------------");
 var multiply = (num1, num2) => num1 * 
 
 
+console.log("--------------------------------");
 
-
+// Iterations before and after returning
+var num = 0;
+console.log(num++); // logs 0 - num is incremented AFTER it was returned
+console.log(num); // logs 1 - num was incremented after the previous log
+console.log(++num); // logs 2 - num is incremented BEFORE being returned
 
